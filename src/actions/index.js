@@ -71,6 +71,7 @@ export function getData() {
 
 export function createData(body)
 {
+    console.log(body)
 
   return {
       
@@ -79,10 +80,9 @@ export function createData(body)
             types: [ CREATE_FORM_REQUEST,CREATE_FORM_SUCCESS,CREATE_FORM_FAILURE] ,
             body
 
-              
       }
      
-
+       
   }
 
 

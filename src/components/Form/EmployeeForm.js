@@ -47,17 +47,7 @@ import './table.css'
   </div>
 
   ));
-
-
-
-
-
-
-
-
- 
-
-    return (
+          return (
       <div>
              <h1>Details of the employee </h1>
              <table>

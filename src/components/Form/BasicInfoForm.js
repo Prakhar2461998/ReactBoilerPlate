@@ -10,9 +10,9 @@ import PropTypes from 'prop-types';
   {
    super(props);
    this.state ={
-     Name:' ',
-     Salary:' ',
-     Age: ' '
+     name:' ',
+     salary:' ',
+     age: ' '
    };
    
 
@@ -33,45 +33,47 @@ import PropTypes from 'prop-types';
   onSubmit(e)
   {
        e.preventDefault();
-       const details = {
-           Name:this.state.Name,
-           Salary:this.state.Salary,
-           Age:this.state.Age
+       const body = {
+           name:this.state.name,
+           salary:this.state.salary,
+           age:this.state.age
        };
       
-      this.props.createData(details);
+       
+
+      this.props.createData(body);
                   }
 
   render() {
-    const{ Name,Salary ,Age }= this.state
+    const{ name,salary ,age }= this.state
     return (
       <div>
         <h1>Enter your details</h1>
         <form onSubmit={this.onSubmit}>
         
          <label>Name:</label>
-         <input type="text"  name="Name" value={this.state.Name} onChange={this.onChange}>
+         <input type="text"  name="name" value={this.state.name} onChange={this.onChange}>
          </input>
          <br />
          <label>Salary:</label>
-         <input type="text"  name="Salary" value={this.state.Salary} onChange={this.onChange} ></input>
+         <input type="text"  name="salary" value={this.state.salary} onChange={this.onChange} ></input>
 
          <br />
             
          <label>Age:</label>
-         <input type="text"  name="Age" value={this.state.Age}  onChange={this.onChange} />
+         <input type="text"  name="age" value={this.state.age}  onChange={this.onChange} />
          <br/>
-           
+         <button>Add</button>
         </form>
         <br />
         <hr />
         <h2>Details to be added</h2>
-        <label>Name:{Name} </label> <br />
+        <label>Name:{name} </label> <br />
         
-        <label>Salary:{Salary}</label>
+        <label>Salary:{salary}</label>
         <br />
-        <label> Age:{Age}</label> <br />
-        <button>Add</button>
+        <label> Age:{age}</label> <br />
+        
       </div>
     )
   }

@@ -5,8 +5,9 @@ import {GET_FORM_REQUEST,GET_FORM_SUCCESS,GET_FORM_FAILURE, CREATE_FORM_REQUEST,
 const initialState=
 {
   employesinfo: [],
-   employee:{},
-   error:{}
+  message:{},
+   error:{},
+   postinfo:{}
 }
 
 export default function rootReducer(state = initialState , action)
@@ -42,40 +43,26 @@ export default function rootReducer(state = initialState , action)
                  {
                    
                   return Object.assign({}, state ,{
-            
-
-                  })
-
-
-
-                 }
+                       })
+                             }
 
                  case CREATE_FORM_SUCCESS:
-
-        {
-
-          {
-            return Object.assign({},state ,{employee:action.response.data
+          
+                   { 
+     
+            return Object.assign({},state ,{postinfo:action.response.data
             })
-            }
+                   }
 
 
-        }
+        
 
-               case CREATE_FORM_FAILURE:{
-                      
-
-                return Object.assign({},state,{error:action.reponse.data.error
-
-
-                })
-
-               }
-            
-
- 
-
-            default:
+        case CREATE_FORM_FAILURE:{
+      
+                      return Object.assign({},state,{error:action.reponse.data.error
+                    })
+                                 }
+             default:
                 return state;
                       
                 
