@@ -1,24 +1,24 @@
 const local = {
   app: {
-    REACT_APP_BASE_URL:" 	http://dummy.restapiexample.com/api/v1/employees",
+    REACT_APP_BASE_URL:" http://dummy.restapiexample.com/api/v1/",
   }
 };
 
 const dev = {
   app: {
-    REACT_APP_BASE_URL:" 	http://dummy.restapiexample.com/api/v1/employees",
+    REACT_APP_BASE_URL:" http://dummy.restapiexample.com/api/v1/",
   },
 };
 
 const uat = {
   app: {
-    REACT_APP_BASE_URL:" 	http://dummy.restapiexample.com/api/v1/employees",
+    REACT_APP_BASE_URL:" http://dummy.restapiexample.com/api/v1/",
   },
 };
 
 const prod = {
   app: {
-    REACT_APP_BASE_URL:" 	http://dummy.restapiexample.com/api/v1/employees",
+    REACT_APP_BASE_URL:" http://dummy.restapiexample.com/api/v1/",
   },
 };
 

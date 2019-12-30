@@ -1,4 +1,4 @@
-import {GET_FORM_REQUEST,GET_FORM_SUCCESS,GET_FORM_FAILURE }  from '../constants/Index';
+import {GET_FORM_REQUEST,GET_FORM_SUCCESS,GET_FORM_FAILURE, CREATE_FORM_REQUEST, CREATE_FORM_SUCCESS, CREATE_FORM_FAILURE }  from '../constants/Index';
   
 
 
@@ -38,13 +38,40 @@ export default function rootReducer(state = initialState , action)
                   )
                    }
 
-           
-        
-            // case :
-            //     return{
-            //         ...state,
-            //         detail:action.payload
-            //     }
+               case CREATE_FORM_REQUEST:
+                 {
+                   
+                  return Object.assign({}, state ,{
+            
+
+                  })
+
+
+
+                 }
+
+                 case CREATE_FORM_SUCCESS:
+
+        {
+
+          {
+            return Object.assign({},state ,{employee:action.response.data
+            })
+            }
+
+
+        }
+
+               case CREATE_FORM_FAILURE:{
+                      
+
+                return Object.assign({},state,{error:action.reponse.data.error
+
+
+                })
+
+               }
+            
 
  
 

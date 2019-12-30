@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { getData } from '../../actions/index'
 import { connect } from 'react-redux'
-
+import './table.css'
 
  class EmployeeForm extends Component {
        
@@ -25,28 +25,52 @@ import { connect } from 'react-redux'
 
   render() {
 
-    const infoList=this.state.info.map(details =>(
-      <div key ={details.id}>
+    const infoList = this.props.employesinfo.map( detail => (
+           
+            
+      <div key={detail.id}>
+      <br />
+
+      <table>
+    
+      <tr>
+      <td>{detail.employee_name}</td>
+      <td>{detail.employee_salary}</td>
+      <td>{detail.employee_age}</td>
+      <td>  <button> Delete</button></td>
       
-      <h2>NAME : {details.employee_name}</h2>
-             
-             
-      <p>Salary: {details.employee_salary}</p>
+      </tr>
       
-         <p>Age: {details.employee_age} </p>
-  
-         <button >DELETE</button>
       
-      </div>
-  
-      
-  ))
-  
+       </table>
+   
+  </div>
+
+  ));
+
+
+
+
+
+
+
+
+ 
 
     return (
       <div>
-            <h1>Details of the employee </h1>
-        {infoList}
+             <h1>Details of the employee </h1>
+             <table>
+             
+             <tr>
+             <th>Name</th>
+             <th> Age</th>
+             <th>Salary</th>
+         
+             
+             </tr>
+             </table>
+              {infoList}
        </div>
     )
   }

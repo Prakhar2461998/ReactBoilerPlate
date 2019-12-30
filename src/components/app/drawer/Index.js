@@ -35,7 +35,7 @@ class Drawer extends Component{
                 <nav className="drawer-navigation">
                     <span className="navgroup-title">Main </span>
                     <ul className="drawer-navmenu">
-                       
+                    <NavItem navMenuTitle="Basic Info Form" navMenuImage={'analytics.svg'} navMenuIcon={""} navURL="/form/BasicInfoForm"></NavItem>
                         <NavItem navMenuTitle="Employee Form" navMenuImage={'analytics.svg'} navMenuIcon={""} navURL="/form/EmployeeForm"></NavItem>
                         {/*<NavItem navMenuTitle="Dashbaord 3" navMenuImage={'dashboard.svg'} navMenuIcon={''} navURL="#"/>
                         <NavItem navMenuTitle="Dashbaord 4" navMenuImage={'project.svg'} navMenuIcon={''} navURL="#"/>

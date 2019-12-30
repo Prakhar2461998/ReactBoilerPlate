@@ -42,10 +42,10 @@
  *      we can use ./ApiActions.js to use ../config.js as a env variables, in a sense
  * 
  */
-import { GET_API } from "../middleware/symbols";
+import { GET_API, POST_API } from "../middleware/symbols";
 
 import {
-    GET_FORM_REQUEST,GET_FORM_SUCCESS,GET_FORM_FAILURE
+    GET_FORM_REQUEST,GET_FORM_SUCCESS,GET_FORM_FAILURE , CREATE_FORM_REQUEST , CREATE_FORM_SUCCESS,CREATE_FORM_FAILURE
 } from '../constants/Index';
 
 import {
@@ -59,11 +59,34 @@ const BASE_URL = baseApi()
 export function getData() {
     return {
         [GET_API]:{
-            endpoint: BASE_URL ,
+            endpoint: BASE_URL + 'employees',
             
             types: [ GET_FORM_REQUEST,GET_FORM_SUCCESS,GET_FORM_FAILURE],
         }
     }
+}
+
+
+
+
+export function createData(body)
+{
+
+  return {
+      
+      [POST_API]:{
+            endpoint:BASE_URL + 'create',
+            types: [ CREATE_FORM_REQUEST,CREATE_FORM_SUCCESS,CREATE_FORM_FAILURE] ,
+            body
+
+              
+      }
+     
+
+  }
+
+
+
 }
 export function handleDrawerToggleChange(toggleStatus) {
     return {type: HANDLE_DRAWER_TOGGLE_CHANGE, toggleStatus}
