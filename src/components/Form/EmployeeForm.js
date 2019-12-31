@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { getData } from '../../actions/index'
 import { connect } from 'react-redux'
+import { deleteData } from '../../actions/index'
+import { updateData } from '../../actions/index'
 import './table.css'
 
  class EmployeeForm extends Component {
@@ -15,6 +17,8 @@ import './table.css'
        info:[],
         
    }
+   this.onClickDelete=this.onClickDelete.bind(this);
+   this.onClickUpdate= this.onClickUpdate.bind(this)
   }
        componentDidMount()
           {
@@ -22,6 +26,22 @@ import './table.css'
           this.props.getData()
         }
 
+
+      onClickDelete(e)
+      {
+       
+    
+        this.props.getData()
+        this.props.deleteData()
+       
+      }
+       
+  onClickUpdate()
+  {
+    this.props.updateData();
+    this.props.getData();
+  }
+             
 
   render() {
 
@@ -37,7 +57,8 @@ import './table.css'
       <td>{detail.employee_name}</td>
       <td>{detail.employee_salary}</td>
       <td>{detail.employee_age}</td>
-      <td>  <button> Delete</button></td>
+      <td>  <button onClick={this.onClickDelete}> Delete</button></td>
+      <td><button onClick={this.onClickUpdate} >Update</button></td>
       
       </tr>
       
@@ -68,8 +89,8 @@ import './table.css'
 
 const mapStateToProps = (state) => {
   
-  const {employesinfo} = state.rootReducer
+  const {employesinfo , deleteinfo , updateinfo } = state.rootReducer
   
-  return { employesinfo }
+  return { employesinfo , deleteinfo , updateinfo }
 }
-export default connect((mapStateToProps), { getData })(EmployeeForm)
+export default connect((mapStateToProps), { getData, deleteData , updateData} )(EmployeeForm)

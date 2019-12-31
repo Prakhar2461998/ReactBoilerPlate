@@ -42,16 +42,20 @@
  *      we can use ./ApiActions.js to use ../config.js as a env variables, in a sense
  * 
  */
-import { GET_API, POST_API } from "../middleware/symbols";
+import { GET_API, POST_API , DELETE_API , PUT_API } from "../middleware/symbols";
 
 import {
-    GET_FORM_REQUEST,GET_FORM_SUCCESS,GET_FORM_FAILURE , CREATE_FORM_REQUEST , CREATE_FORM_SUCCESS,CREATE_FORM_FAILURE
+    GET_FORM_REQUEST,GET_FORM_SUCCESS,GET_FORM_FAILURE , CREATE_FORM_REQUEST , 
+    CREATE_FORM_SUCCESS,CREATE_FORM_FAILURE , DELETE_FORM_REQUEST,
+     DELETE_FORM_SUCCESS, DELETE_FORM_FAILURE , UPDATE_FORM_REQUEST,UPDATE_FORM_SUCCESS,
+     UPDATE_FORM_FAILURE
 } from '../constants/Index';
 
 import {
     HANDLE_DRAWER_TOGGLE_CHANGE
 } from '../constants/Index';
 import { baseApi } from "./ApiActions";
+import { id } from "date-fns/locale";
 
 const BASE_URL = baseApi()
 
@@ -71,7 +75,7 @@ export function getData() {
 
 export function createData(body)
 {
-    console.log(body)
+   
 
   return {
       
@@ -85,9 +89,45 @@ export function createData(body)
        
   }
 
+}
+
+
+
+export function deleteData()
+{
+ 
+return{
+
+         [ DELETE_API]:{
+                
+             endpoint: BASE_URL + 'delete/2 '+ id,
+             types: [ DELETE_FORM_REQUEST,DELETE_FORM_SUCCESS,DELETE_FORM_FAILURE ]
+            
+                    
+
+         }
+}
+
 
 
 }
+
+export function updateData()
+{
+ return{
+        [PUT_API]:{
+            endpoint: BASE_URL+ 'update/21 ',
+            types : [UPDATE_FORM_REQUEST , UPDATE_FORM_SUCCESS, UPDATE_FORM_FAILURE],
+            
+        } 
+
+
+ }
+
+
+}
+
+
 export function handleDrawerToggleChange(toggleStatus) {
     return {type: HANDLE_DRAWER_TOGGLE_CHANGE, toggleStatus}
 }
