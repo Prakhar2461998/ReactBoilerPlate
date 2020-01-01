@@ -5,6 +5,7 @@ import { deleteData } from '../../actions/index'
 import { updateData } from '../../actions/index'
 import './table.css'
 
+
  class EmployeeForm extends Component {
        
 
@@ -17,31 +18,41 @@ import './table.css'
        info:[],
         
    }
-   this.onClickDelete=this.onClickDelete.bind(this);
+  // this.onClickDelete=this.onClickDelete.bind(this);
    this.onClickUpdate= this.onClickUpdate.bind(this)
   }
        componentDidMount()
           {
             
-          this.props.getData()
+          this.props.dispatch(getData())
         }
 
 
-      onClickDelete(e)
+      onClickDelete(employeeid)
       {
-       
-    
-        this.props.getData()
-        this.props.deleteData()
+       this.props.dispatch(deleteData(employeeid))
+       this.props.dispatch(getData())
        
       }
        
-  onClickUpdate()
-  {
-    this.props.updateData();
-    this.props.getData();
-  }
-             
+  // onClickUpdate()
+  // {
+  //   this.props.dispatch(updateData());
+  //   this.props.dispatch(getData());
+  // }
+  onClickUpdate(event) 
+  
+  { 
+     event.preventDefault();
+
+    this.setState({ updateinfo: this.state.updateinfo.map(item => 
+      {        if (item.id === this.state.id) 
+        {          item['title'] = event.target.updateinfo.value;          
+        return item;        }
+  
+          return item;      })   });
+  
+     this.setState({      edit: false   });}
 
   render() {
 
@@ -57,7 +68,7 @@ import './table.css'
       <td>{detail.employee_name}</td>
       <td>{detail.employee_salary}</td>
       <td>{detail.employee_age}</td>
-      <td>  <button onClick={this.onClickDelete}> Delete</button></td>
+      <td>  <button onClick={this.onClickDelete.bind(this, detail.id)}> Delete</button></td>
       <td><button onClick={this.onClickUpdate} >Update</button></td>
       
       </tr>
@@ -89,8 +100,11 @@ import './table.css'
 
 const mapStateToProps = (state) => {
   
-  const {employesinfo , deleteinfo , updateinfo } = state.rootReducer
+  const {employesinfo ,  deleteinfo , updateinfo } = state.rootReducer
   
-  return { employesinfo , deleteinfo , updateinfo }
+
+
+
+  return { employesinfo , deleteinfo ,  updateinfo}
 }
-export default connect((mapStateToProps), { getData, deleteData , updateData} )(EmployeeForm)
+export default connect(mapStateToProps)(EmployeeForm)

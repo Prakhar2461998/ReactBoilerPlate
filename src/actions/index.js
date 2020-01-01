@@ -93,14 +93,14 @@ export function createData(body)
 
 
 
-export function deleteData()
+export function deleteData(employeeid)
 {
  
 return{
 
          [ DELETE_API]:{
                 
-             endpoint: BASE_URL + 'delete/2 '+ id,
+             endpoint: BASE_URL + 'delete/2 '+ employeeid,
              types: [ DELETE_FORM_REQUEST,DELETE_FORM_SUCCESS,DELETE_FORM_FAILURE ]
             
                     
@@ -112,12 +112,13 @@ return{
 
 }
 
-export function updateData()
+export function updateData(body)
 {
+
  return{
         [PUT_API]:{
             endpoint: BASE_URL+ 'update/21 ',
-            types : [UPDATE_FORM_REQUEST , UPDATE_FORM_SUCCESS, UPDATE_FORM_FAILURE],
+            types : [UPDATE_FORM_REQUEST , UPDATE_FORM_SUCCESS, UPDATE_FORM_FAILURE],body
             
         } 
 
