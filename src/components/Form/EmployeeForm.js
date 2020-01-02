@@ -32,27 +32,17 @@ import './table.css'
       {
        this.props.dispatch(deleteData(employeeid))
        this.props.dispatch(getData())
+ 
+      
        
       }
        
-  // onClickUpdate()
-  // {
-  //   this.props.dispatch(updateData());
-  //   this.props.dispatch(getData());
-  // }
-  onClickUpdate(event) 
-  
-  { 
-     event.preventDefault();
-
-    this.setState({ updateinfo: this.state.updateinfo.map(item => 
-      {        if (item.id === this.state.id) 
-        {          item['title'] = event.target.updateinfo.value;          
-        return item;        }
-  
-          return item;      })   });
-  
-     this.setState({      edit: false   });}
+  onClickUpdate()
+  {
+    this.props.dispatch(updateData());
+    this.props.dispatch(getData());
+  }
+             
 
   render() {
 
