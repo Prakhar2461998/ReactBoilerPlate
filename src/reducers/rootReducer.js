@@ -49,7 +49,7 @@ export default function rootReducer(state = initialState , action)
                               })
                          }
 
-                         case CREATE_FORM_SUCCESS:
+                        case CREATE_FORM_SUCCESS:
                          { 
                              return Object.assign({},state ,{postinfo:action.response.data
                               })
@@ -57,41 +57,60 @@ export default function rootReducer(state = initialState , action)
 
                          case CREATE_FORM_FAILURE:
                          {
-                             return Object.assign({},state,{error:action.reponse.data.error
+                              return Object.assign({},state,{error:action.reponse.data.error
                                })
                           }
             
 
-                case DELETE_FORM_REQUEST:{
 
-                        
-                  return Object.assign({},state,{
 
-                  })
-                }
-                  case DELETE_FORM_SUCCESS:{
-                      
-                    return Object.assign({} ,  state, {deleteinfo:action.response.data})
-                  } 
 
-                  case DELETE_FORM_FAILURE:{
-                    
-                    return Object.assign({},state,{error:action.response.data.error})
-                  }
-                     case UPDATE_FORM_REQUEST:{
-                       console.log()
-                       return Object.assign({},state,{ })
-                     }
-                     case UPDATE_FORM_SUCCESS:{
-                       return Object.assign({}, state , {updateinfo:action.response.data})
-                     }
-                     case UPDATE_FORM_FAILURE:{
 
-                      return Object.assign({},state,{error:action.response.data.error})
-                     }
+                         case DELETE_FORM_REQUEST:
+                          {
+                              return Object.assign({},state,{
+
+                              })
+                          }
+
+                         case DELETE_FORM_SUCCESS:
+                          {
+                              return Object.assign({} ,  state, {deleteinfo:action.response.data
+                              })
+                          } 
+ 
+                         case DELETE_FORM_FAILURE:
+                          {
+                              return Object.assign({},state,{error:action.response.data.error
+                              })
+                          }
+
+
+
+
+
+                     case UPDATE_FORM_REQUEST:
+                       {
+                            return Object.assign({},state,{ 
+                            })
+                            
+                       }
+                     case UPDATE_FORM_SUCCESS:
+                       {
+                            return Object.assign({}, state , {updateinfo:action.response.data
+                            })
+                       }
+                     case UPDATE_FORM_FAILURE:
+                       {
+                            return Object.assign({},state,{error:action.response.data.error
+                            })
+                       }
                   
-                  default:
-                    return state;
+
+
+                       
+                      default:
+                        return state;
     
 
     }

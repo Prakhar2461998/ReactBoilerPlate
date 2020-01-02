@@ -61,6 +61,7 @@ const BASE_URL = baseApi()
 
 // Action Creators
 export function getData() {
+    console.log("after delete")
     return {
         [GET_API]:{
             endpoint: BASE_URL + 'employees',
@@ -95,6 +96,7 @@ export function createData(body)
 
 export function deleteData(employeeid)
 {
+     console.log(employeeid)
  
 return{
 
@@ -106,7 +108,7 @@ return{
                     
 
          }
-}
+ }
 
 
 
