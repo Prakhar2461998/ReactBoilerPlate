@@ -43,28 +43,26 @@
  * 
  */
 import { GET_API, POST_API , DELETE_API , PUT_API } from "../middleware/symbols";
-
-import {
-    GET_FORM_REQUEST,GET_FORM_SUCCESS,GET_FORM_FAILURE , CREATE_FORM_REQUEST , 
-    CREATE_FORM_SUCCESS,CREATE_FORM_FAILURE , DELETE_FORM_REQUEST,
-     DELETE_FORM_SUCCESS, DELETE_FORM_FAILURE , UPDATE_FORM_REQUEST,UPDATE_FORM_SUCCESS,
-     UPDATE_FORM_FAILURE
-} from '../constants/Index';
+import { GET_FORM_REQUEST,GET_FORM_SUCCESS,GET_FORM_FAILURE } from '../constants/getform'
+import {CREATE_FORM_REQUEST,CREATE_FORM_SUCCESS,CREATE_FORM_FAILURE }from '../constants/createform'
+import { DELETE_FORM_REQUEST,DELETE_FORM_SUCCESS, DELETE_FORM_FAILURE }from '../constants/deleteform'
+import {UPDATE_FORM_REQUEST,UPDATE_FORM_SUCCESS,UPDATE_FORM_FAILURE }from '../constants/updateform'
 
 import {
     HANDLE_DRAWER_TOGGLE_CHANGE
 } from '../constants/Index';
 import { baseApi } from "./ApiActions";
-import { id } from "date-fns/locale";
+//import { id } from "date-fns/locale";
 
 const BASE_URL = baseApi()
 
 // Action Creators
 export function getData() {
-    console.log("after delete")
+    console.log("get action")
+    
     return {
         [GET_API]:{
-            endpoint: BASE_URL + 'employees',
+            endpoint: BASE_URL + 'projects',
             
             types: [ GET_FORM_REQUEST,GET_FORM_SUCCESS,GET_FORM_FAILURE],
         }
@@ -81,7 +79,7 @@ export function createData(body)
   return {
       
       [POST_API]:{
-            endpoint:BASE_URL + 'create',
+            endpoint:BASE_URL + 'projects',
             types: [ CREATE_FORM_REQUEST,CREATE_FORM_SUCCESS,CREATE_FORM_FAILURE] ,
             body
 

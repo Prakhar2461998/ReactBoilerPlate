@@ -10,9 +10,9 @@ import PropTypes from 'prop-types';
   {
    super(props);
    this.state ={
+     id:' ',
      name:' ',
-     salary:' ',
-     age: ' '
+     date: ' '
    };
    
 
@@ -34,9 +34,9 @@ import PropTypes from 'prop-types';
   {
        e.preventDefault();
        const body = {
+           id:this.state.id,
            name:this.state.name,
-           salary:this.state.salary,
-           age:this.state.age
+           date:this.state.date
        };
       
        
@@ -45,34 +45,35 @@ import PropTypes from 'prop-types';
                   }
 
   render() {
-    const{ name,salary ,age }= this.state
+    const{ id ,name , date }= this.state
     return (
       <div>
         <h1>Enter your details</h1>
         <form onSubmit={this.onSubmit}>
         
-         <label>Name:</label>
-         <input type="text"  name="name" value={this.state.name} onChange={this.onChange}>
+         <label>ID:</label><br />
+         <input type="text"  name="id" value={this.state.id} onChange={this.onChange} required>
          </input>
          <br />
-         <label>Salary:</label>
-         <input type="text"  name="salary" value={this.state.salary} onChange={this.onChange} ></input>
+         <label>NAME:</label><br />
+         <input type="text"  name="name" value={this.state.name} onChange={this.onChange}  required></input>
 
          <br />
             
-         <label>Age:</label>
-         <input type="text"  name="age" value={this.state.age}  onChange={this.onChange} />
+         <label>DATE:</label><br />
+         <input type="text"  name="date" value={this.state.date }  onChange={this.onChange}  required/>
          <br/>
+         <br />
          <button>Add</button>
         </form>
         <br />
         <hr />
         <h2>Details to be added</h2>
-        <label>Name:{name} </label> <br />
+        <label>ID:{id} </label> <br />
         
-        <label>Salary:{salary}</label>
+        <label>NAME:{name}</label>
         <br />
-        <label> Age:{age}</label> <br />
+        <label>DATE:{date}</label> <br />
         
       </div>
     )

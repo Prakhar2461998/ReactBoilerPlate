@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { getData } from '../../actions/index'
 import { connect } from 'react-redux'
-import { deleteData } from '../../actions/index'
-import { updateData } from '../../actions/index'
+//import { deleteData } from '../../actions/index'
+//import { updateData } from '../../actions/index'
 import './table.css'
 
 
@@ -15,11 +15,11 @@ import './table.css'
 
    super(props)
    this.state={
-       info:[],
+       List:[],
         
    }
   // this.onClickDelete=this.onClickDelete.bind(this);
-   this.onClickUpdate= this.onClickUpdate.bind(this)
+   //this.onClickUpdate= this.onClickUpdate.bind(this)
   }
        componentDidMount()
           {
@@ -28,25 +28,26 @@ import './table.css'
         }
 
 
-      onClickDelete(employeeid)
-      {
-       this.props.dispatch(deleteData(employeeid))
-       this.props.dispatch(getData())
+  //     onClickDelete(employeeid)
+  //     {
+  //      this.props.dispatch(deleteData(employeeid))
+  //      this.props.dispatch(getData())
  
       
        
-      }
+  //     }
        
-  onClickUpdate()
-  {
-    this.props.dispatch(updateData());
-    this.props.dispatch(getData());
-  }
+  // onClickUpdate()
+  // {
+  //   this.props.dispatch(updateData());
+  //   this.props.dispatch(getData());
+  // }
              
 
   render() {
+    console.log( this.props.projects)
 
-    const infoList = this.props.employesinfo.map( detail => (
+    const ProjectList = this.props.projects.map( detail => (
            
             
       <div key={detail.id}>
@@ -55,11 +56,11 @@ import './table.css'
       <table>
     
       <tr>
-      <td>{detail.employee_name}</td>
-      <td>{detail.employee_salary}</td>
-      <td>{detail.employee_age}</td>
-      <td>  <button onClick={this.onClickDelete.bind(this, detail.id)}> Delete</button></td>
-      <td><button onClick={this.onClickUpdate} >Update</button></td>
+      <td>{detail.id}</td>
+      <td>{detail.name}</td>
+      <td>{detail.created_at}</td>
+      <td>  <button > Delete</button></td>
+      <td><button  >Update</button></td>
       
       </tr>
       
@@ -71,18 +72,18 @@ import './table.css'
   ));
           return (
       <div>
-             <h1>Details of the employee </h1>
+             <h1>Project Management List</h1>
              <table>
              
              <tr>
+             <th>Id</th>
              <th>Name</th>
-             <th> Age</th>
-             <th>Salary</th>
+             <th>Created Date</th>
          
              
              </tr>
              </table>
-              {infoList}
+              {ProjectList}
        </div>
     )
   }
@@ -90,11 +91,7 @@ import './table.css'
 
 const mapStateToProps = (state) => {
   
-  const {employesinfo ,  deleteinfo , updateinfo } = state.rootReducer
-  
-
-
-
-  return { employesinfo , deleteinfo ,  updateinfo}
+  const { projects } = state.rootReducer
+   return { projects }
 }
 export default connect(mapStateToProps)(EmployeeForm)

@@ -1,24 +1,24 @@
 const local = {
   app: {
-    REACT_APP_BASE_URL:" http://dummy.restapiexample.com/api/v1/",
+    REACT_APP_BASE_URL:" https://devops-intelligence.xenon.work/api/projects",
   }
 };
 
 const dev = {
   app: {
-    REACT_APP_BASE_URL:" http://dummy.restapiexample.com/api/v1/",
+    REACT_APP_BASE_URL:" https://devops-intelligence.xenon.work/api/projects",
   },
 };
 
 const uat = {
   app: {
-    REACT_APP_BASE_URL:" http://dummy.restapiexample.com/api/v1/",
+    REACT_APP_BASE_URL:" https://devops-intelligence.xenon.work/api/projects",
   },
 };
 
 const prod = {
   app: {
-    REACT_APP_BASE_URL:" http://dummy.restapiexample.com/api/v1/",
+    REACT_APP_BASE_URL:" https://devops-intelligence.xenon.work/api/projects",
   },
 };
 
