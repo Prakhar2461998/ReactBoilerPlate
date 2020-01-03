@@ -37,6 +37,7 @@ import PropTypes from 'prop-types';
        e.preventDefault();
        const body = {
           name:this.state.name
+          
        };
       
        
