@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { getData } from '../../actions/index'
 import { connect } from 'react-redux'
-//import { deleteData } from '../../actions/index'
+import { deleteData } from '../../actions/index'
 //import { updateData } from '../../actions/index'
 import './table.css'
 
@@ -25,17 +25,15 @@ import './table.css'
           {
             
           this.props.dispatch(getData())
+          
         }
 
 
-  //     onClickDelete(employeeid)
-  //     {
-  //      this.props.dispatch(deleteData(employeeid))
-  //      this.props.dispatch(getData())
- 
-      
-       
-  //     }
+      onClickDelete(projectid)
+      {
+       this.props.dispatch(deleteData(projectid))
+       this.props.dispatch(getData())
+         }
        
   // onClickUpdate()
   // {
@@ -59,7 +57,7 @@ import './table.css'
       <td>{detail.id}</td>
       <td>{detail.name}</td>
       <td>{detail.created_at}</td>
-      <td>  <button > Delete</button></td>
+      <td>  <button onClick={this.onClickDelete.bind(this,detail.id)}> Delete</button></td>
       <td><button  >Update</button></td>
       
       </tr>
@@ -91,7 +89,7 @@ import './table.css'
 
 const mapStateToProps = (state) => {
   
-  const { projects } = state.rootReducer
-   return { projects }
+  const { projects , deleteinfo } = state.rootReducer
+   return { projects ,  deleteinfo }
 }
 export default connect(mapStateToProps)(EmployeeForm)

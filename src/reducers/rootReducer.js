@@ -11,7 +11,7 @@ const initialState=
   
  error:{},
 
- createpro:[]
+ addproject:{}
 }
 
 export default function rootReducer(state = initialState , action)
@@ -52,7 +52,7 @@ export default function rootReducer(state = initialState , action)
                         case CREATE_FORM_SUCCESS:
                          { 
                              console.log("CREATE_FORM_SUCCESS")
-                             return Object.assign({},state ,{createpro:action.response.data
+                             return Object.assign({},state ,{addproject:action.response.data
                               })
                          }
 
@@ -68,24 +68,27 @@ export default function rootReducer(state = initialState , action)
 
 
 
-                    //      case DELETE_FORM_REQUEST:
-                    //       {
-                    //           return Object.assign({},state,{
+                         case DELETE_FORM_REQUEST:
+                          {
+                              console.log("DELETE_FORM_REQUEST")
+                              return Object.assign({},state,{
 
-                    //           })
-                    //       }
+                              })
+                          }
 
-                    //      case DELETE_FORM_SUCCESS:
-                    //       {
-                    //           return Object.assign({} ,  state, {deleteinfo:action.response.data
-                    //           })
-                    //       } 
+                         case DELETE_FORM_SUCCESS:
+                          { 
+                            console.log("DELTE_FORM_SUCCESS")
+                              return Object.assign({} ,  state, {deleteinfo:action.response.data
+                              })
+                          } 
  
-                    //      case DELETE_FORM_FAILURE:
-                    //       {
-                    //           return Object.assign({},state,{error:action.response.data.error
-                    //           })
-                    //       }
+                         case DELETE_FORM_FAILURE:
+                          {
+                            console.log("DELTE_FORM_FAILURE")
+                              return Object.assign({},state,{error:action.response.data.error
+                              })
+                          }
 
 
 

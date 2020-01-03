@@ -74,7 +74,7 @@ export function getData() {
 
 export function createData(body)
 {
-   
+   console.log("cretedataa")
 
   return {
       
@@ -92,15 +92,15 @@ export function createData(body)
 
 
 
-export function deleteData(employeeid)
+export function deleteData(projectid)
 {
-     console.log(employeeid)
+     console.log("DELETE DATA")
  
 return{
 
          [ DELETE_API]:{
                 
-             endpoint: BASE_URL + 'delete/2 '+ employeeid,
+             endpoint: BASE_URL + '/projects/'+ projectid,
              types: [ DELETE_FORM_REQUEST,DELETE_FORM_SUCCESS,DELETE_FORM_FAILURE ]
             
                     
