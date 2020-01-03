@@ -74,12 +74,12 @@ export function getData() {
 
 export function createData(body)
 {
-   console.log("cretedataa")
+   console.log("crete dataa")
 
   return {
       
       [POST_API]:{
-            endpoint:BASE_URL + 'projects',
+            endpoint:BASE_URL + '/projects',
             types: [ CREATE_FORM_REQUEST,CREATE_FORM_SUCCESS,CREATE_FORM_FAILURE] ,
             body
 

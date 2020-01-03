@@ -3,6 +3,7 @@ import { createData } from '../../actions/index'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types';
 
+
  class BasicInfoForm extends Component {
 
 
@@ -10,9 +11,10 @@ import PropTypes from 'prop-types';
   {
    super(props);
    this.state ={
-     id:' ',
      name:' ',
-     date: ' '
+     toolurl:' ',
+     namespace:' ',
+     repo:' '
    };
    
 
@@ -34,46 +36,52 @@ import PropTypes from 'prop-types';
   {
        e.preventDefault();
        const body = {
-           id:this.state.id,
-           name:this.state.name,
-           date:this.state.date
+          name:this.state.name
        };
       
        
-
+     
       this.props.createData(body);
                   }
 
   render() {
-    const{ id ,name , date }= this.state
-    return (
+        return (
       <div>
-        <h1>Enter your details</h1>
+        <h1>ADD/CREATE YOUR PROJECT</h1>
         <form onSubmit={this.onSubmit}>
+           
+         <label>PROJECT NAME</label><br />
         
-         <label>ID:</label><br />
-         <input type="text"  name="id" value={this.state.id} onChange={this.onChange} required>
+         <input type="text"  name="name" value={this.state.name} onChange={this.onChange} required>
          </input>
          <br />
-         <label>NAME:</label><br />
-         <input type="text"  name="name" value={this.state.name} onChange={this.onChange}  required></input>
-
          <br />
+         <label>TRACKING TYPE</label>
+         <br />
+         <br />
+         <input type="radio" />
+         <label>Jira</label>
+         <input type="radio" style={{marginLeft:"10%"}} />
+         <label>Redmine</label>
+         <br />
+         <br />
+       
+         <label>TARCKING URL:</label>
+         <input type="text"  name="toolurl" value={this.state.toolurl} onChange={this.onChange}  required></input>
+
+         
             
-         <label>DATE:</label><br />
-         <input type="text"  name="date" value={this.state.date }  onChange={this.onChange}  required/>
+         <label  style={{marginLeft:"10%"}}>NAMESPACE:</label>
+         <input type="text"  name="namespace" value={this.state.namespace }  onChange={this.onChange}  required/>
          <br/>
          <br />
-         <button>Add</button>
+         <label style={{marginLeft:"1%"}}>REPOSITORY:</label> 
+         <input type="text"  name="repo" value={this.state.repo} onChange={this.onChange}  required></input>
+         
+         <button  style={{marginLeft:"10%" ,borderRadius:"10px", backgroundColor:"#4CAF50",padding:"6px",paddingRight:"18px",paddingLeft:"18px"}}>Add</button>
         </form>
         <br />
-        <hr />
-        <h2>Details to be added</h2>
-        <label>ID:{id} </label> <br />
         
-        <label>NAME:{name}</label>
-        <br />
-        <label>DATE:{date}</label> <br />
         
       </div>
     )
@@ -86,4 +94,9 @@ BasicInfoForm.propTypes={
   createData: PropTypes.func.isRequired
 };
 
-export default connect(null, {createData})(BasicInfoForm);
+const mapStateToProps = (state) => {
+  
+  const { addproject } = state.rootReducer
+   return { addproject }
+}
+export default connect(mapStateToProps, {createData})(BasicInfoForm);

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { getData } from '../../actions/index'
 import { connect } from 'react-redux'
 import { deleteData } from '../../actions/index'
+
 //import { updateData } from '../../actions/index'
 import './table.css'
 
@@ -31,8 +32,10 @@ import './table.css'
 
       onClickDelete(projectid)
       {
+        
        this.props.dispatch(deleteData(projectid))
        this.props.dispatch(getData())
+       
          }
        
   // onClickUpdate()
@@ -57,12 +60,12 @@ import './table.css'
       <td>{detail.id}</td>
       <td>{detail.name}</td>
       <td>{detail.created_at}</td>
-      <td>  <button onClick={this.onClickDelete.bind(this,detail.id)}> Delete</button></td>
+      <td>  <button onClick={this.onClickDelete.bind(this,detail.id)} > Delete</button></td>
       <td><button  >Update</button></td>
       
       </tr>
       
-      
+     
        </table>
    
   </div>
@@ -70,7 +73,7 @@ import './table.css'
   ));
           return (
       <div>
-             <h1>Project Management List</h1>
+             <h1>LIST OF PROJECTS</h1>
              <table>
              
              <tr>
