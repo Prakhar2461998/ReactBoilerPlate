@@ -10,8 +10,9 @@ const initialState=
   projects: [],
   
  error:{},
-
- addproject:{}
+message:" ",
+ addproject:{},
+ deleteinfo:{}
 }
 
 export default function rootReducer(state = initialState , action)
@@ -52,7 +53,8 @@ export default function rootReducer(state = initialState , action)
                         case CREATE_FORM_SUCCESS:
                          { 
                              console.log("CREATE_FORM_SUCCESS")
-                             return Object.assign({},state ,{addproject:action.response.data
+                             return Object.assign({},state ,{addproject:action.response.data,
+                              
                               })
                          }
 
@@ -79,7 +81,13 @@ export default function rootReducer(state = initialState , action)
                          case DELETE_FORM_SUCCESS:
                           { 
                             console.log("DELTE_FORM_SUCCESS")
-                              return Object.assign({} ,  state, {deleteinfo:action.response.data
+                              return Object.assign({} ,  state, {
+                                
+                                error:false,
+                                message:"Data Successfully deleted ",
+                                deleteinfo:action.response.data,
+                                
+                        
                               })
                           } 
  
