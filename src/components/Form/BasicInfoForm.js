@@ -36,7 +36,10 @@ import PropTypes from 'prop-types';
   {
        e.preventDefault();
        const body = {
-          name:this.state.name
+          name:this.state.name,
+          toolurl:this.state.toolurl,
+          namespace:this.state.namespace,
+          repo:this.state.repo
           
        };
       
