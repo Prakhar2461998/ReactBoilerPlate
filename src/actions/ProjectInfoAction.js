@@ -117,7 +117,7 @@ export function updateData(body)
 
  return{
         [PUT_API]:{
-            endpoint: BASE_URL+ 'update/21 ',
+            endpoint: BASE_URL+ ' ',
             types : [UPDATE_FORM_REQUEST , UPDATE_FORM_SUCCESS, UPDATE_FORM_FAILURE],body
             
         } 

@@ -6,7 +6,7 @@ import './dist/style.css';
 import NavItem from './NavItem';
 import NavSubItem from './NavSubItem';
 import NavItemGroup from './NavItemGroup';
-import { handleDrawerToggleChange } from '../../../actions';
+import { handleDrawerToggleChange } from '../../../actions/ProjectInfoAction';
 
 class Drawer extends Component{
     componentDidMount() {
@@ -35,8 +35,8 @@ class Drawer extends Component{
                 <nav className="drawer-navigation">
                     <span className="navgroup-title">Main </span>
                     <ul className="drawer-navmenu">
-                    <NavItem navMenuTitle="Basic Info Form" navMenuImage={'analytics.svg'} navMenuIcon={""} navURL="/form/BasicInfoForm"></NavItem>
-                        <NavItem navMenuTitle="Employee Form" navMenuImage={'analytics.svg'} navMenuIcon={""} navURL="/form/EmployeeForm"></NavItem>
+                    <NavItem navMenuTitle="Create Project" navMenuImage={'analytics.svg'} navMenuIcon={""} navURL="/form/CreateProjectForm"></NavItem>
+                        <NavItem navMenuTitle="Project List" navMenuImage={'analytics.svg'} navMenuIcon={""} navURL="/form/ProjectInfoForm"></NavItem>
                         {/*<NavItem navMenuTitle="Dashbaord 3" navMenuImage={'dashboard.svg'} navMenuIcon={''} navURL="#"/>
                         <NavItem navMenuTitle="Dashbaord 4" navMenuImage={'project.svg'} navMenuIcon={''} navURL="#"/>
                         <NavItemGroup navMenuTitle="Dashbaord 5" navMenuImage={'alert.svg'} navURL="#" hasSubmenuClass="nav-dropdown-menu" >

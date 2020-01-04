@@ -3,17 +3,17 @@ import { Route, Switch, withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
 import Header from '../../components/app/header/header';
 import Drawer from '../../components/app/drawer/Index';
-import BasicInfoForm from '../../components/Form/BasicInfoForm';
-import EmployeeForm from '../../components/Form/EmployeeForm';
+import CreateProjectForm from '../../components/Form/CreateProjectForm';
+import ProjectInfoForm from '../../components/Form/ProjectInfoForm';
 import {ProtectedRoute} from '../../routes/ProtectedRoute'
 class FormIndex extends Component {
     render() {
         return (
                 <div className="dashboard-content-container">
                     <Switch>
-                        <Route exact path="/form" component={BasicInfoForm} />
-                        <Route path="/form/BasicInfoForm" component={BasicInfoForm} />
-                        <ProtectedRoute path='/form/EmployeeForm' component={EmployeeForm}/>
+                        <Route exact path="/form" component={CreateProjectForm} />
+                        <Route path="/form/CreateProjectForm" component={CreateProjectForm} />
+                        <ProtectedRoute path='/form/ProjectInfoForm' component={ProjectInfoForm}/>
                     </Switch>
                 </div>
         )

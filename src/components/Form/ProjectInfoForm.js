@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
-import { getData } from '../../actions/index'
+import { getData } from '../../actions/ProjectInfoAction'
 import { connect } from 'react-redux'
-import { deleteData } from '../../actions/index'
+import { deleteData } from '../../actions/ProjectInfoAction'
 
 //import { updateData } from '../../actions/index'
 import './table.css'
 
 
- class EmployeeForm extends Component {
+ class ProjectInfoForm extends Component {
        
 
       
@@ -95,4 +95,4 @@ const mapStateToProps = (state) => {
   const { projects , deleteinfo } = state.rootReducer
    return { projects ,  deleteinfo }
 }
-export default connect(mapStateToProps)(EmployeeForm)
+export default connect(mapStateToProps)(ProjectInfoForm)

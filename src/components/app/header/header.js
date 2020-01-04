@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { withRouter, NavLink } from 'react-router-dom'
 import { connect } from 'react-redux';
 import './header.css';
-import { handleDrawerToggleChange } from '../../../actions/index';
+import { handleDrawerToggleChange } from '../../../actions/ProjectInfoAction';
 
 class Header extends Component{
   toggleHeader(e) {

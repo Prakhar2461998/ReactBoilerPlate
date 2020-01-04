@@ -8,11 +8,10 @@ import {UPDATE_FORM_REQUEST, UPDATE_FORM_SUCCESS ,UPDATE_FORM_FAILURE}  from '..
 const initialState=
 {
   projects: [],
-  
- error:{},
-message:" ",
- addproject:{},
- deleteinfo:{}
+  error:{},
+  message:" ",
+  addproject:{},
+  deleteinfo:{}
 }
 
 export default function rootReducer(state = initialState , action)

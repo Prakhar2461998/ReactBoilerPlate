@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { createData } from '../../actions/index'
+import { createData } from '../../actions/ProjectInfoAction'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types';
 
 
- class BasicInfoForm extends Component {
+ class CreateProjectForm extends Component {
 
 
   constructor(props)
@@ -94,7 +94,7 @@ import PropTypes from 'prop-types';
 
 
 
-BasicInfoForm.propTypes={
+CreateProjectForm.propTypes={
   createData: PropTypes.func.isRequired
 };
 
@@ -103,4 +103,4 @@ const mapStateToProps = (state) => {
   const { addproject } = state.rootReducer
    return { addproject }
 }
-export default connect(mapStateToProps, {createData})(BasicInfoForm);
+export default connect(mapStateToProps, {createData})(CreateProjectForm);
