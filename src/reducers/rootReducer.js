@@ -11,7 +11,8 @@ const initialState=
   error:{},
   message:" ",
   addproject:{},
-  deleteinfo:{}
+  deleteinfo:{},
+  updatepro:{}
 }
 
 export default function rootReducer(state = initialState , action)
@@ -85,9 +86,7 @@ export default function rootReducer(state = initialState , action)
                                 error:false,
                                 message:"Data Successfully deleted ",
                                 deleteinfo:action.response.data,
-                                
-                        
-                              })
+                                })
                           } 
  
                          case DELETE_FORM_FAILURE:
@@ -101,22 +100,27 @@ export default function rootReducer(state = initialState , action)
 
 
 
-                    //  case UPDATE_FORM_REQUEST:
-                    //    {
-                    //         return Object.assign({},state,{ 
-                    //         })
+                     case UPDATE_FORM_REQUEST:
+                       {
+                            console.log("UPDATE_FORM_REQUEST")
+                            return Object.assign({},state,{ 
+                            })
                             
-                    //    }
-                    //  case UPDATE_FORM_SUCCESS:
-                    //    {
-                    //         return Object.assign({}, state , {updateinfo:action.response.data
-                    //         })
-                    //    }
-                    //  case UPDATE_FORM_FAILURE:
-                    //    {
-                    //         return Object.assign({},state,{error:action.response.data.error
-                    //         })
-                    //    }
+                       }
+                     case UPDATE_FORM_SUCCESS:
+                       {
+                            console.log("UPDATE_FORM_SUCCESS")
+                            return Object.assign({}, state , {
+                        
+                              updatepro:action.response.data
+                            })
+                       }
+                     case UPDATE_FORM_FAILURE:
+                       {
+                            console.log("UPDATE_FORM_FAILURE")
+                            return Object.assign({},state,{error:action.response.data.error
+                            })
+                       }
                   
 
 

@@ -56,7 +56,7 @@ import PropTypes from 'prop-types';
            
          <label>PROJECT NAME</label><br />
         
-         <input type="text"  name="name" value={this.state.name} onChange={this.onChange} required>
+         <input type="text"  name="name" value={this.state.name} onChange={this.onChange} minLength="3" required>
          </input>
          <br />
          <br />

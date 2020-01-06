@@ -112,13 +112,14 @@ return{
 
 }
 
-export function updateData(body)
+export function updateData(projectid)
 {
+    console.log("update action")
 
  return{
         [PUT_API]:{
-            endpoint: BASE_URL+ ' ',
-            types : [UPDATE_FORM_REQUEST , UPDATE_FORM_SUCCESS, UPDATE_FORM_FAILURE],body
+            endpoint: BASE_URL+ '/projects/'+ projectid,
+            types : [UPDATE_FORM_REQUEST , UPDATE_FORM_SUCCESS, UPDATE_FORM_FAILURE]
             
         } 
 

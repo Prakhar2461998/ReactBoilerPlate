@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { getData } from '../../actions/ProjectInfoAction'
 import { connect } from 'react-redux'
 import { deleteData } from '../../actions/ProjectInfoAction'
+import { updateData } from '../../actions/ProjectInfoAction'
+import { createData } from '../../actions/ProjectInfoAction'
 
 //import { updateData } from '../../actions/index'
 import './table.css'
@@ -38,11 +40,15 @@ import './table.css'
        
          }
        
-  // onClickUpdate()
-  // {
-  //   this.props.dispatch(updateData());
-  //   this.props.dispatch(getData());
-  // }
+  onClickUpdate(projectid)
+  {
+    
+      
+    this.props.dispatch(updateData(projectid))
+    
+    this.props.dispatch(createData())
+
+  }
              
 
   render() {
@@ -54,15 +60,16 @@ import './table.css'
       <div key={detail.id}>
       <br />
 
-      <table>
+      <table className="table-content" >
     
       <tr>
-      <td>{detail.id}</td>
-      <td>{detail.name}</td>
-      <td>{detail.created_at}</td>
-      <td>  <button onClick={this.onClickDelete.bind(this,detail.id)} > Delete</button></td>
-      <td><button  >Update</button></td>
+      <td >{detail.id}</td>
+      <td >{detail.name}</td>
+      <td className="create" >{detail.created_at}</td>
       
+      <td >  <button onClick={this.onClickDelete.bind(this,detail.id)} > Delete</button></td>
+      <td >  <button onClick={this.onClickUpdate.bind(this,detail.id)} >Update</button></td>
+     
       </tr>
       
      
@@ -76,10 +83,12 @@ import './table.css'
              <h1>LIST OF PROJECTS</h1>
              <table>
              
-             <tr>
-             <th>Id</th>
-             <th>Name</th>
-             <th>Created Date</th>
+             <tr  className="table-content">
+             <th >Id</th>
+             <th >Name</th>
+             <th >Created Date</th>
+             <th> Actions</th>
+           
          
              
              </tr>
@@ -92,7 +101,7 @@ import './table.css'
 
 const mapStateToProps = (state) => {
   
-  const { projects , deleteinfo } = state.rootReducer
-   return { projects ,  deleteinfo }
+  const { projects , deleteinfo , updatepro} = state.rootReducer
+   return { projects ,  deleteinfo , updatepro}
 }
 export default connect(mapStateToProps)(ProjectInfoForm)
