@@ -5,6 +5,7 @@ import { deleteData } from '../../actions/ProjectInfoAction'
 import { updateData } from '../../actions/ProjectInfoAction'
 import { createData } from '../../actions/ProjectInfoAction'
 
+
 //import { updateData } from '../../actions/index'
 import './table.css'
 
@@ -43,56 +44,65 @@ import './table.css'
   onClickUpdate(projectid)
   {
     
+    
       
     this.props.dispatch(updateData(projectid))
-    
+  //  this.setState({[projectid.target.name]: projectid.target.value});
     this.props.dispatch(createData())
 
   }
              
 
   render() {
-    console.log( this.props.projects)
+    
+
 
     const ProjectList = this.props.projects.map( detail => (
            
             
-      <div key={detail.id}>
+      <div key={detail.id} className="grid-container">
       <br />
 
-      <table className="table-content" >
-    
+      <table className="table" >
+     
+     
+      <tbody>
       <tr>
-      <td >{detail.id}</td>
-      <td >{detail.name}</td>
-      <td className="create" >{detail.created_at}</td>
+      <td data-lable="ID">{detail.id}</td>
       
-      <td >  <button onClick={this.onClickDelete.bind(this,detail.id)} > Delete</button></td>
-      <td >  <button onClick={this.onClickUpdate.bind(this,detail.id)} >Update</button></td>
-     
-      </tr>
+      <td data-lable="NAME"> {detail.name}</td>
+      <td data-lable="CREATEDAT"> {detail.created_at}</td>
       
+      <td data-lable="ACTION">  <button onClick={this.onClickDelete.bind(this,detail.id)} > Delete</button></td>
+      <td data-lable="ACTION">  <button onClick={this.onClickUpdate.bind(this,detail.id)}>Update</button></td>
      
-       </table>
-   
+    </tr>
+    </tbody>
+       
+   </table>
   </div>
 
   ));
           return (
       <div>
              <h1>LIST OF PROJECTS</h1>
-             <table>
              
-             <tr  className="table-content">
-             <th >Id</th>
-             <th >Name</th>
-             <th >Created Date</th>
-             <th> Actions</th>
-           
-         
-             
-             </tr>
-             </table>
+             <table className="table" >
+        <thead>
+            <th>ID</th>
+            <th>Name</th>
+            <th>CreatedAt</th>
+            <th>Action</th>
+            <th>Action</th>
+    
+            
+        </thead>
+        
+
+    </table>
+
+
+          
               {ProjectList}
        </div>
     )
