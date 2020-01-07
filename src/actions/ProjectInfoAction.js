@@ -47,7 +47,7 @@ import { GET_FORM_REQUEST,GET_FORM_SUCCESS,GET_FORM_FAILURE } from '../constants
 import {CREATE_FORM_REQUEST,CREATE_FORM_SUCCESS,CREATE_FORM_FAILURE }from '../constants/createform'
 import { DELETE_FORM_REQUEST,DELETE_FORM_SUCCESS, DELETE_FORM_FAILURE }from '../constants/deleteform'
 import {UPDATE_FORM_REQUEST,UPDATE_FORM_SUCCESS,UPDATE_FORM_FAILURE }from '../constants/updateform'
-
+import { GET_DETAIL_REQUEST,GET_DETAIL_SUCCESS,GET_DETAIL_FAILURE } from '../constants/getdetails'
 import {
     HANDLE_DRAWER_TOGGLE_CHANGE
 } from '../constants/Index';
@@ -68,7 +68,17 @@ export function getData() {
         }
     }
 }
-
+export function getProjectDetails(projectid) {
+    console.log("get action")
+    
+    return {
+        [GET_API]:{
+            endpoint: BASE_URL + 'projects/'+projectid,
+            
+            types: [ GET_DETAIL_REQUEST,GET_DETAIL_SUCCESS,GET_DETAIL_FAILURE],
+        }
+    }
+}
 
 
 

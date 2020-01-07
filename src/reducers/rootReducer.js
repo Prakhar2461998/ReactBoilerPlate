@@ -2,6 +2,7 @@ import {GET_FORM_REQUEST,GET_FORM_SUCCESS,GET_FORM_FAILURE} from '../constants/g
 import {CREATE_FORM_REQUEST, CREATE_FORM_SUCCESS, CREATE_FORM_FAILURE } from '../constants/createform'
 import {DELETE_FORM_REQUEST,DELETE_FORM_SUCCESS,DELETE_FORM_FAILURE }  from '../constants/deleteform'
 import {UPDATE_FORM_REQUEST, UPDATE_FORM_SUCCESS ,UPDATE_FORM_FAILURE}  from '../constants/updateform'
+import { GET_DETAIL_REQUEST, GET_DETAIL_SUCCESS, GET_DETAIL_FAILURE } from '../constants/getdetails'
   
 
 
@@ -12,7 +13,9 @@ const initialState=
   message:" ",
   addproject:{},
   deleteinfo:{},
-  updatepro:{}
+  updatepro:{},
+  projdetails:{},info:{}
+
 }
 
 export default function rootReducer(state = initialState , action)
@@ -29,24 +32,59 @@ export default function rootReducer(state = initialState , action)
                      case GET_FORM_SUCCESS:
                         {
                             console.log('GET_FORM_SUCCESS')
-                            return Object.assign({},state ,{projects:action.response.data.list
+                            return Object.assign({},state ,{
+                              projects:action.response.data.list.length === 0 ?[]:action.response.data.list
                              })
                          }
 
                       case GET_FORM_FAILURE:
                          {
                              console.log('GET_FORM_FAILURE')
-                             return Object.assign({},state,{error:action.reponse.data.error
+                             return Object.assign({},state,{
                             })
                          }
 
               
+
+                       case GET_DETAIL_REQUEST:
+                        {
+                          console.log('GET_DETAIL_REQUEST')
+                          return Object.assign({},state , {
+                        
+                          })
+                        }
+
+                       case GET_DETAIL_SUCCESS:
+                          {
+                            console.log('GET_DETAIL_SUCCESS')
+                            console.log(action.response.data)
+                              return Object.assign({},state ,{
+                              projdetails:action.response.data,
+                              // projdetails:JSON.parse(projdetails)
+                             
+                          } )
+                            
+                         
+                          
+                          }
+                        case GET_DETAIL_FAILURE:
+                          {
+
+                            console.log('GET_DETAIL_FAILURE')
+                            return Object.assign({},state,{
+                           })
+                        }
+
+                     
+
+
               
               
                         case CREATE_FORM_REQUEST:
                          {
                              console.log("CREATE_FORM_REQUEST")
                              return Object.assign({}, state ,{
+                               
                               })
                          }
 

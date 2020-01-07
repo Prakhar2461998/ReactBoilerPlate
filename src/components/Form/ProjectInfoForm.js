@@ -4,7 +4,8 @@ import { connect } from 'react-redux'
 import { deleteData } from '../../actions/ProjectInfoAction'
 import { updateData } from '../../actions/ProjectInfoAction'
 import { createData } from '../../actions/ProjectInfoAction'
-
+import EditForm from '../Form/EditForm'
+import { Link } from 'react-router-dom';
 
 //import { updateData } from '../../actions/index'
 import './table.css'
@@ -41,16 +42,16 @@ import './table.css'
        
          }
        
-  onClickUpdate(projectid)
-  {
+  // onClickUpdate(projectid)
+  // {
     
     
       
-    this.props.dispatch(updateData(projectid))
-  //  this.setState({[projectid.target.name]: projectid.target.value});
-    this.props.dispatch(createData())
+  //   this.props.dispatch(updateData(projectid))
+  // //  this.setState({[projectid.target.name]: projectid.target.value});
+  //   //this.props.dispatch(createData())
 
-  }
+  // }
              
 
   render() {
@@ -74,8 +75,9 @@ import './table.css'
       <td data-lable="CREATEDAT"> {detail.created_at}</td>
       
       <td data-lable="ACTION">  <button onClick={this.onClickDelete.bind(this,detail.id)} > Delete</button></td>
-      <td data-lable="ACTION">  <button onClick={this.onClickUpdate.bind(this,detail.id)}>Update</button></td>
-     
+       <Link to={"/form/EditForm/"+detail.id}>
+       <td data-lable="ACTION">  <button >Update</button></td>
+     </Link>
     </tr>
     </tbody>
        

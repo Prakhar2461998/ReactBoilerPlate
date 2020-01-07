@@ -6,6 +6,7 @@ import Drawer from '../../components/app/drawer/Index';
 import CreateProjectForm from '../../components/Form/CreateProjectForm';
 import ProjectInfoForm from '../../components/Form/ProjectInfoForm';
 import {ProtectedRoute} from '../../routes/ProtectedRoute'
+import EditForm from '../../components/Form/EditForm';
 class FormIndex extends Component {
     render() {
         return (
@@ -13,6 +14,7 @@ class FormIndex extends Component {
                     <Switch>
                         <Route exact path="/form" component={CreateProjectForm} />
                         <Route path="/form/CreateProjectForm" component={CreateProjectForm} />
+                        <Route path="/form/EditForm/:projectid" component={EditForm} />
                         <ProtectedRoute path='/form/ProjectInfoForm' component={ProjectInfoForm}/>
                     </Switch>
                 </div>
