@@ -14,7 +14,7 @@ class FormIndex extends Component {
                     <Switch>
                         <Route exact path="/form" component={CreateProjectForm} />
                         <Route path="/form/CreateProjectForm" component={CreateProjectForm} />
-                        <Route path="/form/EditForm/:projectid" component={EditForm} />
+                        <Route path="/form/edit/:projectid" component={CreateProjectForm} />
                         <ProtectedRoute path='/form/ProjectInfoForm' component={ProjectInfoForm}/>
                     </Switch>
                 </div>

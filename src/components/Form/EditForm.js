@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import {  getProjectDetails } from '../../actions/ProjectInfoAction'
 import { getData } from '../../actions/ProjectInfoAction'
 import { updateData } from '../../actions/ProjectInfoAction'
+import { submitdata } from '../../actions/ProjectInfoAction'
  class EditForm extends Component {
     constructor(props)
   {
@@ -26,21 +27,24 @@ componentDidMount()
   onChange(e)
   {
       this.setState({[e.target.name]: e.target.value});
-     
-  }
+   //   this.setState({[e.target.namespace]: e.target.value})
+ //  this.props.dispatch(submitdata())
+ }
 
   onSubmit(e)
   {
        e.preventDefault();
        const body = 
        {
-          name:this.state.name,
+          name:this.props.info,
           toolurl:this.state.toolurl,
-          namespace:this.state.namespace,
+          namespace:this.props.info,
           repo:this.state.repo
           
        };
     //  this.props.updateData(body)
+  //   this.props.updateData(body)
+
     //    this.props.createData(body);
    }
 
@@ -49,7 +53,7 @@ componentDidMount()
     render() {
     
       console.log(this.props.projdetails)
-          
+          const {projdetails} =this.props;
         return (
             <div>
                 <h1>EDIT FROM DETAILS</h1>
@@ -59,7 +63,7 @@ componentDidMount()
            
                 <label>PROJECT NAME</label><br />
                
-                <input type="text"  name="name" value= {this.props.projdetails.name} onChange={this.onChange} minLength="3" >
+                <input type="text"  name="name" value= {projdetails.name} onChange={this.onChange} minLength="3" >
 
                 </input>
                 <br />
@@ -67,7 +71,7 @@ componentDidMount()
                 <label>TRACKING TYPE</label>
                 <br />
                 <br />
-                <input type="radio" value = {this.props.projdetails.tracking_type}  />
+                <input type="radio" value = {projdetails.tracking_type}  />
                 <label>Jira</label>
                 <input type="radio" style={{marginLeft:"10%"}} value = {this.props.projdetails.tracking_type} />
                 <label>Redmine</label>
@@ -110,8 +114,8 @@ EditForm.propTypes={
   
   const mapStateToProps = (state) => {
     
-    const { addproject,projdetails } = state.rootReducer
-     return { addproject ,projdetails}
+    const { addproject,projdetails , info } = state.rootReducer
+     return { addproject ,projdetails ,info}
     
   }
   export default connect(mapStateToProps)(EditForm)

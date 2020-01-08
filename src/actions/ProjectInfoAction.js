@@ -43,8 +43,8 @@
  * 
  */
 import { GET_API, POST_API , DELETE_API , PUT_API } from "../middleware/symbols";
-import { GET_FORM_REQUEST,GET_FORM_SUCCESS,GET_FORM_FAILURE } from '../constants/getform'
-import {CREATE_FORM_REQUEST,CREATE_FORM_SUCCESS,CREATE_FORM_FAILURE }from '../constants/createform'
+import { GET_FORM_REQUEST,GET_FORM_SUCCESS,GET_FORM_FAILURE , UPDATE_PROJECT_FORM_DATA} from '../constants/getform'
+import {CREATE_FORM_REQUEST,CREATE_FORM_SUCCESS,CREATE_FORM_FAILURE  }from '../constants/createform'
 import { DELETE_FORM_REQUEST,DELETE_FORM_SUCCESS, DELETE_FORM_FAILURE }from '../constants/deleteform'
 import {UPDATE_FORM_REQUEST,UPDATE_FORM_SUCCESS,UPDATE_FORM_FAILURE }from '../constants/updateform'
 import { GET_DETAIL_REQUEST,GET_DETAIL_SUCCESS,GET_DETAIL_FAILURE } from '../constants/getdetails'
@@ -73,18 +73,24 @@ export function getProjectDetails(projectid) {
     
     return {
         [GET_API]:{
-            endpoint: BASE_URL + 'projects/'+projectid,
+            endpoint: BASE_URL + '/projects/'+projectid,
             
             types: [ GET_DETAIL_REQUEST,GET_DETAIL_SUCCESS,GET_DETAIL_FAILURE],
         }
     }
 }
 
-
+export function updateProjectFormData(data){
+    console.log(data,'actionssss')
+    return{
+     type :UPDATE_PROJECT_FORM_DATA, 
+     data
+    }
+}
 
 export function createData(body)
 {
-   console.log("crete dataa")
+   console.log("Create data")
 
   return {
       
@@ -122,14 +128,14 @@ return{
 
 }
 
-export function updateData(projectid)
+export function updateData(projectid, body)
 {
     console.log("update action")
 
  return{
         [PUT_API]:{
             endpoint: BASE_URL+ '/projects/'+ projectid,
-            types : [UPDATE_FORM_REQUEST , UPDATE_FORM_SUCCESS, UPDATE_FORM_FAILURE]
+            types : [UPDATE_FORM_REQUEST , UPDATE_FORM_SUCCESS, UPDATE_FORM_FAILURE],body
             
         } 
 

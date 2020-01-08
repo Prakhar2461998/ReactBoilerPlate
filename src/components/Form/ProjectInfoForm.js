@@ -39,9 +39,15 @@ import './table.css'
         
        this.props.dispatch(deleteData(projectid))
        this.props.dispatch(getData())
+      
        
          }
        
+         componentWillReceiveProps(nextProps){
+           if(nextProps.projectDeleteSuccess){
+            this.props.dispatch(getData())
+           }
+         }
   // onClickUpdate(projectid)
   // {
     
@@ -75,7 +81,7 @@ import './table.css'
       <td data-lable="CREATEDAT"> {detail.created_at}</td>
       
       <td data-lable="ACTION">  <button onClick={this.onClickDelete.bind(this,detail.id)} > Delete</button></td>
-       <Link to={"/form/EditForm/"+detail.id}>
+       <Link to={"/form/edit/"+detail.id}>
        <td data-lable="ACTION">  <button >Update</button></td>
      </Link>
     </tr>
@@ -102,10 +108,7 @@ import './table.css'
         
 
     </table>
-
-
-          
-              {ProjectList}
+          {ProjectList}
        </div>
     )
   }
